@@ -46,23 +46,31 @@ function resultItems() {
   throw new Error("未知试卷类型");
 }
 function saveFinished() {
-  const items = resultItems();
-  const correct = items.filter(x => x.is_correct).length;
-  let score = Math.round(correct / items.length * 10000) / 100;
-  if (cfg.type === "math") {
+  const enhanced = window.GAOSTUDY_ROUND_API;
+  const snapshot = enhanced ? enhanced.takeSnapshot() : null;
+  // 已批改过的轮次、未填完的轮次，不新增重复的云端记录。
+  if (enhanced && !snapshot) return null;
+  const items = snapshot ? snapshot.items : resultItems();
+  if (!items.length) return null;
+  const correct = snapshot ? snapshot.correct : items.filter(x => x.is_correct).length;
+  let score = snapshot ? snapshot.score : Math.round(correct / items.length * 10000) / 100;
+  if (!snapshot && cfg.type === "math") {
     score = QUESTIONS.reduce((sum, q, i) => sum + (items[i].is_correct ? q.points : 0), 0);
   }
   const timestamp = new Date().toISOString();
   const record = {
     id: newId(), child_name: cfg.child, quiz_id: cfg.quizId,
     semester: $("gaocloud-semester").value.trim() || "2026春",
-    phase: ($("gaocloud-phase").value || "期末") + "-" + cfg.title,
-    round_no: null, total_questions: items.length, correct_questions: correct,
+    phase: ($("gaocloud-phase").value || "期末") + "-" + cfg.title +
+      (snapshot ? "-" + snapshot.scope + "-第" + snapshot.roundNo + "轮" : ""),
+    round_no: snapshot ? snapshot.roundNo : null,
+    total_questions: items.length, correct_questions: correct,
     score, completed_at: timestamp,
     items: items.map(x => Object.assign({}, x, { answered_at: timestamp })), synced: false
   };
   const all = read(); all.push(record); write(all);
-  status("已在本机保存本次记录（" + correct + "/" + items.length + "题）。" + (unlocked ? "正在上传云端…" : "先解锁家庭档案即可上传。"));
+  status("已在本机保存第" + (record.round_no || 1) + "轮（" + correct + "/" + items.length +
+    "题）。" + (unlocked ? "正在上传云端…" : "先解锁家庭档案即可上传。"));
   return record;
 }
 async function identity() {
