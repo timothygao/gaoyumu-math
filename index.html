@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>高语牧 · 数学学习书架</title>
+<style>
+:root{--accent:#276da1;--background:#e9f5ff}*{box-sizing:border-box}
+body{margin:0;background:linear-gradient(165deg,var(--background),#fffdfb 55%,#f5fafc);color:#253c4c;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.6}
+main{max-width:940px;margin:auto;padding:25px 16px 65px}
+.hero{border:1px solid #d9e8f0;border-radius:18px;padding:24px;background:#fff;box-shadow:0 10px 28px #1a537a11}
+.eyebrow{font-size:13px;font-weight:700;color:var(--accent)}h1{font-size:30px;margin:4px 0 8px}.hero p{color:#587082;font-size:14px;margin:0}
+nav{display:flex;flex-wrap:wrap;gap:7px;margin-top:17px}nav a{border:1px solid #d3e2ea;border-radius:10px;color:#315974;text-decoration:none;padding:7px 14px;background:#fff;font-size:14px}
+nav a[aria-current]{color:white;background:var(--accent);border-color:var(--accent)}
+h3{font-size:17px;margin:25px 0 11px}.paper{border:1px solid #dce8ed;background:#fff;border-radius:14px;padding:16px 18px;margin:11px 0;display:flex;justify-content:space-between;align-items:center;gap:14px;box-shadow:0 3px 13px #1a537a0d}
+.paper h2{font-size:19px;margin:6px 0 3px}.paper p{color:#637a88;font-size:13px;margin:0}.tag{font-size:12px;color:var(--accent);background:var(--background);border-radius:6px;padding:3px 7px}
+.open{display:inline-block;text-decoration:none;border:1px solid var(--accent);border-radius:9px;color:var(--accent);padding:9px 11px;white-space:nowrap;font-size:14px;font-weight:bold}
+.empty{padding:28px;border:1px dashed #c0d6e5;background:#fff;border-radius:12px}.empty h2{font-size:18px}
+.note{color:#647c8d;font-size:13px;margin:16px 0}
+@media(max-width:650px){.paper{align-items:stretch;flex-direction:column}.open{text-align:center}h1{font-size:26px}}
+</style></head><body><main>
+<header class="hero"><div class="eyebrow">📐 高语牧 · 四年级 · 数学</div><h1>数学学习书架</h1><p>试卷按年级归档，完成练习后将学习记录上传到家庭云端（需要先解锁家庭档案）。</p><nav><a href="https://timothygao.github.io/gaoyumu-math/" aria-current="page">数学</a><a href="https://timothygao.github.io/gaoyumu-english/" >英语</a><a href="https://timothygao.github.io/gaoyumu-chinese/" >语文</a><a href="https://timothygao.github.io/gaoyumu-grade4-science/" >科学</a></nav></header>
+<h3>试卷目录</h3><article class="paper"><div><span class="tag">历史试卷·云端版</span><h2>三年级下册 · 期末冲刺卷（35题）</h2><p>理解应用版 · 自动批改 · 云端错题</p></div><a class="open" href="papers/grade3/math-final-application-cloud.html">查看并做题 →</a></article><article class="paper"><div><span class="tag">原件</span><h2>三年级下册 · 原始备份</h2><p>原件不修改 · 不自动同步</p></div><a class="open" href="archive/grade3/math-final-application-original.html">查看原始备份 →</a></article>
+<p class="note">说明：只有标记「云端版」的试卷支持同步；归档原件用于备份。当前还未实现全学科家长看板，实际上传情况请在 Supabase 的 quiz_attempts_secure 表中查看。</p>
+</main></body></html>
