@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>三下数学期末冲刺卷｜理解应用版</title>
+<style>
+:root {
+  --ink:#223346; --muted:#61758b; --blue:#286fa8; --blue-soft:#edf7ff;
+  --paper:#fffdf8; --line:#d7e6ef; --green:#197449; --green-soft:#ecfaf2;
+  --red:#b14141; --red-soft:#fff1f1; --gold:#a2670b; --gold-soft:#fff6e2;
+  --shadow:0 12px 30px rgba(26,62,92,.10);
+}
+*{box-sizing:border-box}
+body{margin:0;background:linear-gradient(180deg,#edf8ff 0,#f8fbfc 45%,#fff8eb 100%);color:var(--ink);font-family:"PingFang SC","Microsoft YaHei",Arial,sans-serif;line-height:1.65}
+.page{max-width:1120px;margin:0 auto;padding:26px 16px 58px}
+.hero{padding:28px 30px;border:1px solid #cfe6f4;border-radius:22px;background:linear-gradient(135deg,#e7f6ff,#fffdf7 68%,#fff2d3);box-shadow:var(--shadow);position:relative;overflow:hidden}
+.hero:after{content:"数";position:absolute;right:22px;top:-30px;font-size:150px;font-weight:900;line-height:1;color:rgba(40,111,168,.07)}
+h1{position:relative;z-index:1;margin:0;font-size:30px;letter-spacing:.4px}
+.subtitle{position:relative;z-index:1;margin:7px 0 0;color:var(--muted);font-size:16px}
+.badges{position:relative;z-index:1;display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.badge{font-size:13px;padding:4px 10px;border-radius:999px;background:rgba(255,255,255,.82);border:1px solid #c7e1f2;color:#256697}
+.notice{position:relative;z-index:1;margin-top:18px;padding:13px 15px;border-left:4px solid #c77c14;background:var(--gold-soft);border-radius:10px;font-size:14px}
+.toolbar{position:relative;z-index:1;margin-top:18px;display:flex;flex-wrap:wrap;gap:10px;align-items:end}
+.field{flex:1;min-width:160px}
+.field label{display:block;font-size:13px;font-weight:800;color:#425d74;margin-bottom:4px}
+input,select{width:100%;padding:10px 11px;border:1.4px solid #bdd7e7;border-radius:10px;background:#fff;font-size:15px;color:var(--ink);outline:none}
+input:focus,select:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(40,111,168,.12)}
+button{border:0;border-radius:10px;padding:11px 16px;font-size:15px;font-weight:800;cursor:pointer;transition:.18s transform,.18s box-shadow}
+button:hover{transform:translateY(-1px);box-shadow:0 8px 16px rgba(25,58,87,.15)}
+button:disabled{opacity:.58;cursor:not-allowed;transform:none;box-shadow:none}
+.primary{background:var(--blue);color:#fff} .ghost{background:#fff;border:1px solid #c7deec;color:#24597f}
+.overview{margin:20px 0 12px;padding:13px 16px;background:#fff;border:1px solid var(--line);border-radius:13px;display:flex;justify-content:space-between;gap:14px;align-items:center;box-shadow:0 4px 13px rgba(26,62,92,.05)}
+.overview b{font-size:17px} .progress-wrap{min-width:280px;display:flex;gap:9px;align-items:center} .progress{height:10px;background:#e7f0f4;border-radius:999px;overflow:hidden;flex:1}.progress i{display:block;height:100%;width:0;background:linear-gradient(90deg,#49afda,#286fa8);transition:.25s}.progress-text{font-size:12px;color:var(--muted);white-space:nowrap}
+.section{margin-top:25px} .section-title{display:flex;align-items:center;gap:8px;margin-bottom:4px} .section-title h2{margin:0;font-size:21px} .section-title span{font-size:12px;color:#276496;border-radius:999px;background:#eaf6ff;padding:3px 8px} .section-note{margin:0 0 12px;color:var(--muted);font-size:14px}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
+.card{background:var(--paper);border:1px solid #dbe7ee;border-radius:15px;padding:16px;box-shadow:0 4px 12px rgba(27,57,83,.05)}
+.card.wide{grid-column:1/-1}
+.qtop{display:flex;align-items:center;gap:7px}.num{display:inline-flex;width:29px;height:29px;align-items:center;justify-content:center;border-radius:50%;background:#eaf6ff;color:#23689c;font-size:12px;font-weight:900}.tag{font-size:12px;color:#73869a}
+.q{margin:10px 0;font-size:16px;min-height:32px}
+.options{display:grid;grid-template-columns:1fr 1fr;gap:8px}.opt{display:flex;gap:7px;align-items:center;border:1px solid #d5e2eb;border-radius:9px;padding:7px 8px;background:#fff;cursor:pointer;font-size:14px}.opt:hover{background:#f4fbff}.opt input{width:auto;accent-color:var(--blue)}
+.answer-line{display:flex;align-items:center;gap:8px;margin-top:8px}.answer-line input{max-width:150px;font-size:17px;font-weight:800;text-align:center}.unit{font-size:14px;color:#577087}
+.feedback{display:none;margin-top:10px;padding:9px 10px;border-radius:9px;font-size:14px;line-height:1.55}.card.correct{border-color:#aadbc0;background:#fbfffc}.card.correct .feedback{display:block;background:var(--green-soft);color:#18633e}.card.wrong{border-color:#e8bbbb;background:#fffdfd}.card.wrong .feedback{display:block;background:var(--red-soft);color:#963939}
+.sticky{position:sticky;bottom:12px;z-index:5;background:rgba(255,255,255,.93);backdrop-filter:blur(9px);border:1px solid var(--line);padding:11px;border-radius:14px;margin-top:24px;display:flex;gap:9px;justify-content:center;box-shadow:var(--shadow)}
+.report{display:none;margin-top:24px;background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:var(--shadow)}.report-head{padding:18px 21px;background:linear-gradient(135deg,#eff9ff,#f9fffb);display:flex;justify-content:space-between;align-items:flex-start;gap:12px}.report h2{margin:0;font-size:21px}.score{font-size:37px;font-weight:900;line-height:1.1;color:#236da4;margin-top:5px}.report-body{padding:18px 21px}.hint{padding:12px 14px;border-radius:11px;background:var(--gold-soft);border:1px solid #efdbab}.mistake-list{margin-top:12px;display:flex;flex-wrap:wrap;gap:7px}.chip{border-radius:999px;padding:4px 8px;border:1px solid #eed39b;background:#fffdf7;color:#80510c;font-size:13px}
+.footer{text-align:center;color:#6c8092;font-size:12px;margin-top:22px}
+@media(max-width:760px){.page{padding:15px 10px 45px}.hero{padding:22px 18px}h1{font-size:25px}.grid{grid-template-columns:1fr}.card.wide{grid-column:auto}.options{grid-template-columns:1fr}.overview{align-items:flex-start;flex-direction:column}.progress-wrap{min-width:0;width:100%}.sticky{flex-direction:column}.sticky button{width:100%}}
+@media print{body{background:#fff}.hero,.card,.overview,.report{box-shadow:none}.sticky{position:static}}
+</style>
+</head>
+<body>
+<main class="page">
+<section class="hero">
+  <h1>三下数学期末冲刺卷 · 理解应用版</h1>
+  <p class="subtitle">不是刷题数量，而是把“容易错的思路”一次打通。建议独立完成后再批改。</p>
+  <div class="badges"><span class="badge">100分 · 约70分钟</span><span class="badge">小数 · 除法 · 年月日</span><span class="badge">面积与周长 · 图形剪拼</span><span class="badge">线段图 · 估算 · 规律</span></div>
+  <div class="notice"><strong>考前提醒：</strong>遇到周长题，先看“有没有新增或减少外边”；遇到日期题，先确认当年2月有几天；遇到连除题，先用一句话说清“第一步平均给谁”。</div>
+  <div class="toolbar">
+    <div class="field"><label for="student">姓名</label><input id="student" placeholder="例如：高语牧"></div>
+    <div class="field"><label for="mode">练习方式</label><select id="mode"><option value="exam">完整冲刺卷</option><option value="review">复习模式（可随时批改）</option></select></div>
+    <button class="primary" id="startBtn">开始作答</button>
+  </div>
+</section>
+
+<section id="exam" style="display:none">
+  <div class="overview"><div><b id="titleLine">数学冲刺卷</b><div style="font-size:13px;color:#66788c">答案只在批改后显示。空题也会给出正确思路。</div></div><div class="progress-wrap"><div class="progress"><i id="progressBar"></i></div><span class="progress-text" id="progressText">已答 0 / 35</span></div></div>
+  <div id="sections"></div>
+  <div class="sticky"><button class="primary" id="gradeBtn">提交并查看批改报告</button><button class="ghost" id="resetBtn">重做本卷</button></div>
+  <section class="report" id="report"></section>
+</section>
+<div class="footer">本卷根据你提供的三下期末选择题、周长专项练习中的重点题型重新设计：更强调“为什么这样算”。</div>
+</main>
+<script>
+const QUESTIONS = [{"id": "q1", "section": "A", "type": "choice", "points": 2, "q": "把一个长方形平均分成10份，涂其中7份，涂色部分可以用哪个小数表示？", "options": ["0.07", "0.7", "7.0", "7"], "answer": "B", "explain": "平均分成10份，涂7份，就是7个十分之一，写作0.7。"}, {"id": "q2", "section": "A", "type": "choice", "points": 2, "q": "下列图形中，只有1条对称轴的是（ ）。", "options": ["正方形", "长方形（不是正方形）", "等边三角形", "等腰三角形（不是等边三角形）"], "answer": "D", "explain": "正方形有4条对称轴；普通长方形有2条；等边三角形有3条；一般等腰三角形只有1条。"}, {"id": "q3", "section": "A", "type": "choice", "points": 2, "q": "2025年2月28日晚上8:20出发，路上用6小时，到达时间是（ ）。", "options": ["2月29日凌晨2:20", "3月1日凌晨2:20", "2月28日凌晨2:20", "3月1日晚上2:20"], "answer": "B", "explain": "2025年是平年，2月只有28天。晚上8:20加4小时到24:00，再加2小时到3月1日凌晨2:20。"}, {"id": "q4", "section": "A", "type": "choice", "points": 2, "q": "解决“每箱装8瓶饮料，23瓶至少要用多少箱”时，商有余数应怎样处理？", "options": ["去尾法", "四舍五入法", "进一法", "不需要取近似数"], "answer": "C", "explain": "23÷8=2……7，2箱装不下，必须再多用1箱，所以用进一法。"}, {"id": "q5", "section": "A", "type": "choice", "points": 2, "q": "一个长方形长9厘米、宽6厘米，分成两个完全一样的小长方形，周长最多增加多少厘米？", "options": ["6", "9", "12", "18"], "answer": "D", "explain": "沿长9厘米的方向切开，新增两条9厘米的边，周长增加9×2=18厘米。"}, {"id": "q6", "section": "A", "type": "choice", "points": 2, "q": "下列问题中，最适合用“120÷3÷4”解决的是（ ）。", "options": ["120本书，平均放到3个书架，每个书架4层，平均每层放几本？", "120元买4支同样的笔，每支多少钱？", "120棵树平均种3排，每排多少棵？", "120个苹果，每4个装1袋，可以装几袋？"], "answer": "A", "explain": "先平均到3个书架，再平均到每个书架的4层：120÷3÷4。"}, {"id": "q7", "section": "A", "type": "choice", "points": 2, "q": "下面说法正确的是（ ）。", "options": ["三位数除以一位数，商一定是三位数", "周长相等的长方形，面积一定相等", "5月有31天", "50.6和5.06读数时都只读一个“零”"], "answer": "C", "explain": "A中100÷9商是两位数；B不一定；D中50.6读“五十点六”，5.06读“五点零六”，读零情况不同。"}, {"id": "q8", "section": "A", "type": "choice", "points": 2, "q": "用12个边长3厘米的小正方形拼成一个大长方形，想让周长最短，应该拼成（ ）。", "options": ["1行12个", "2行6个", "3行4个", "没有区别"], "answer": "C", "explain": "总面积相同时，长和宽越接近，周长越短。3行4个最接近正方形。"}, {"id": "q9", "section": "A", "type": "choice", "points": 2, "q": "图形按“○、△、□、◎”四个一组重复排列，第324个图形是（ ）。", "options": ["○", "△", "□", "◎"], "answer": "D", "explain": "324÷4=81，没有余数，说明正好是每组的第4个图形：◎。"}, {"id": "q10", "section": "A", "type": "choice", "points": 2, "q": "一张长12厘米、宽8厘米的长方形纸，连续左右对折2次，得到的小长方形周长是（ ）厘米。", "options": ["14", "18", "22", "28"], "answer": "B", "explain": "左右对折2次，长变为12÷4=3厘米，宽仍是8厘米，周长=(3+8)×2=22厘米。注意：题目若是“上下对折”，答案才不同。"}, {"id": "q11", "section": "B", "type": "input", "points": 2, "q": "0.8里面有（   ）个0.1。", "answer": ["8"], "unit": "", "explain": "0.8=8个0.1。"}, {"id": "q12", "section": "B", "type": "input", "points": 2, "q": "720÷8=（   ）。", "answer": ["90"], "unit": "", "explain": "72÷8=9，所以720÷8=90。"}, {"id": "q13", "section": "B", "type": "input", "points": 2, "q": "1平方米=（   ）平方分米。", "answer": ["100"], "unit": "", "explain": "1米=10分米，所以1平方米=10×10=100平方分米。"}, {"id": "q14", "section": "B", "type": "input", "points": 2, "q": "开放时间9:00—17:00，全天开放（   ）小时。", "answer": ["8"], "unit": "小时", "explain": "17时-9时=8小时。"}, {"id": "q15", "section": "B", "type": "input", "points": 2, "q": "8.7-3.2=（   ）。", "answer": ["5.5"], "unit": "", "explain": "十分位对齐相减：8.7-3.2=5.5。"}, {"id": "q16", "section": "B", "type": "input", "points": 2, "q": "一个长12厘米、宽7厘米的长方形，面积是（   ）平方厘米。", "answer": ["84"], "unit": "平方厘米", "explain": "面积=长×宽=12×7=84平方厘米。"}, {"id": "q17", "section": "B", "type": "input", "points": 2, "q": "一个长12厘米、宽7厘米的长方形，周长是（   ）厘米。", "answer": ["38"], "unit": "厘米", "explain": "周长=(12+7)×2=38厘米。"}, {"id": "q18", "section": "B", "type": "input", "points": 2, "q": "332除以5，至少加上（   ）后，结果没有余数。", "answer": ["3"], "unit": "", "explain": "332÷5余2，要补到下一个5的倍数，至少加3。"}, {"id": "q19", "section": "B", "type": "input", "points": 2, "q": "一根绳子长25.6米，第一次用去4.5米，第二次用去6.7米，两次一共用去（   ）米。", "answer": ["11.2"], "unit": "米", "explain": "4.5+6.7=11.2（米）。"}, {"id": "q20", "section": "B", "type": "input", "points": 2, "q": "从2025年2月24日开始，到3月3日结束，开始和结束这两天都算，一共有（   ）天。", "answer": ["8"], "unit": "天", "explain": "2月24—28日共5天，3月1—3日共3天，合计8天。"}, {"id": "q21", "section": "C", "type": "input", "points": 4, "q": "学校买来120本练习册，平均放进3个书架，每个书架有4层。平均每层放多少本？", "answer": ["10"], "unit": "本", "explain": "120÷3÷4=10（本）。先平均到书架，再平均到每一层。"}, {"id": "q22", "section": "C", "type": "input", "points": 4, "q": "绿化小队每天能种97棵树，现在要种718棵。8天能完成吗？若能，填“能”；若不能，填“不能”。", "answer": ["能"], "unit": "", "explain": "97×8=776（棵），776>718，所以能完成。也可估算：97≈100，100×8=800>718。"}, {"id": "q23", "section": "C", "type": "input", "points": 4, "q": "小明从家到学校平时走1千米。他走了0.2千米发现忘带红领巾，又回家取，再从家走到学校。这样比平时多走（   ）千米。", "answer": ["0.4"], "unit": "千米", "explain": "多走的是“走出去0.2千米，又返回0.2千米”：0.2+0.2=0.4千米。"}, {"id": "q24", "section": "C", "type": "input", "points": 4, "q": "妈妈买了4盒茶，每盒有2罐。每罐优惠9元，一共优惠多少元？", "answer": ["72"], "unit": "元", "explain": "4×2×9=72（元）。无关信息如原价、重量不用参与计算。"}, {"id": "q25", "section": "C", "type": "input", "points": 4, "q": "把18块边长1分米的正方形巧克力摆成长方形礼盒。为了让礼盒周长最短，可以摆成（   ）行、（   ）列。（只填两个数，用逗号隔开，如“3,6”）", "answer": ["3,6", "6,3"], "unit": "", "explain": "18的因数对有1×18、2×9、3×6，3×6最接近正方形，周长最短。"}, {"id": "q26", "section": "C", "type": "input", "points": 4, "q": "两张完全一样的长方形贺卡左右拼，总周长比原来两张周长和少12厘米；上下拼少16厘米。原来每张贺卡的周长是多少厘米？", "answer": ["28"], "unit": "厘米", "explain": "拼接时少的是两条重合边。左右拼少12，说明一条边是6；上下拼少16，另一条边是8。每张周长=(6+8)×2=28厘米。"}, {"id": "q27", "section": "C", "type": "input", "points": 4, "q": "一个正方形边长8厘米，剪成4张完全一样的小正方形纸。4张小正方形周长的和比原来正方形周长增加（   ）厘米。", "answer": ["32"], "unit": "厘米", "explain": "原周长32厘米；每小正方形边长4厘米，周长16厘米，4张共64厘米；增加64-32=32厘米。"}, {"id": "q28", "section": "C", "type": "input", "points": 4, "q": "一张长24厘米、宽8厘米的长方形纸沿竖直方向对折一次，得到两个相同小长方形。每个小长方形周长是多少厘米？", "answer": ["40"], "unit": "厘米", "explain": "竖直对折后，长24÷2=12厘米，宽8厘米；周长=(12+8)×2=40厘米。"}, {"id": "q29", "section": "C", "type": "input", "points": 4, "q": "一块水池底部贴满边长1米的正方形瓷砖，其中灰色瓷砖有8块，灰色瓷砖正好占全部瓷砖的1/4。水池底部面积是多少平方米？", "answer": ["32"], "unit": "平方米", "explain": "全部瓷砖有8×4=32块；每块面积1平方米，所以总面积32平方米。"}, {"id": "q30", "section": "C", "type": "input", "points": 4, "q": "画展从6月10日开始，到8月31日结束，开始和结束这两天都算，优惠一共有（   ）天。", "answer": ["83"], "unit": "天", "explain": "6月10—30日21天，7月31天，8月31天，合计21+31+31=83天。"}, {"id": "q31", "section": "D", "type": "choice", "points": 4, "q": "一个长10厘米、宽6厘米的长方形，从一个角剪去一个长3厘米、宽2厘米的小长方形。剩下图形和原来图形相比（ ）。", "options": ["面积减少6平方厘米，周长不变", "面积减少6平方厘米，周长增加10厘米", "面积不变，周长增加10厘米", "面积减少5平方厘米，周长不变"], "answer": "A", "explain": "剪去角上的小长方形，原来外边少了3和2，又新添了3和2，周长不变；面积减少3×2=6平方厘米。"}, {"id": "q32", "section": "D", "type": "choice", "points": 4, "q": "把一根长24厘米的铁丝围成长方形，长和宽都是整厘米数。下面哪一种围法面积最大？", "options": ["长11厘米，宽1厘米", "长10厘米，宽2厘米", "长8厘米，宽4厘米", "长6厘米，宽6厘米"], "answer": "D", "explain": "周长相同时，长和宽越接近，面积越大；正方形6×6面积最大。"}, {"id": "q33", "section": "D", "type": "input", "points": 4, "q": "一辆车15:35出发，2小时45分后到达。到达时刻是（   ）。（按“时:分”填写）", "answer": ["18:20"], "unit": "", "explain": "15:35+2小时=17:35，再加45分=18:20。"}, {"id": "q34", "section": "D", "type": "input", "points": 4, "q": "把一个长9厘米、宽6厘米的长方形平均分成两个完全一样的小长方形。若要求周长增加得最多，切开后每个小长方形的面积是（   ）平方厘米。", "answer": ["27"], "unit": "平方厘米", "explain": "无论怎么平均分，面积都平均分成原面积的一半。原面积9×6=54平方厘米，每个是27平方厘米。"}, {"id": "q35", "section": "D", "type": "choice", "points": 4, "q": "下列“先估算再判断”的方法，最合理的是（ ）。", "options": ["判断718棵树8天能否种完：把718看作700，把97看作100，算700÷8=87.5，再和100比较", "判断718棵树8天能否种完：把97看作100，算100×8=800，再和718比较", "判断718棵树8天能否种完：把8看作10，算97×10=970，再和718比较", "判断718棵树8天能否种完：把718看作720，算720÷8=90，再和97比较，所以不能完成"], "answer": "B", "explain": "题目问“8天能完成多少”，最直接估算总量是97×8≈100×8=800，再和718比。B的方向和结论都可靠。"}];
+const SECTION_META = {
+  A:["第一部分：判断陷阱","选择题 · 20分","每题先想清楚“为什么不是另外三个”。"],
+  B:["第二部分：基础计算与概念","填空题 · 20分","单位、日期、面积和周长要分清。"],
+  C:["第三部分：生活应用","解决问题 · 40分","写题时先说清楚每一步在求什么。"],
+  D:["第四部分：转弯思考","挑战题 · 20分","这部分专门练最容易被题目“绕”住的地方。"]
+};
+function $(id){return document.getElementById(id)}
+function esc(s){return String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]))}
+function norm(v){return String(v??"").trim().replace(/[，,]/g,",").replace(/\s+/g,"").replace(/(平方厘米|平方分米|平方米|厘米|分米|千米|米|小时|天|本|元|棵)/g,"")}
+function render(){
+  const host=$("sections"); host.innerHTML="";
+  for(const sec of ["A","B","C","D"]){
+    const list=QUESTIONS.filter(q=>q.section===sec);
+    const [name,score,note]=SECTION_META[sec];
+    const section=document.createElement("section"); section.className="section";
+    section.innerHTML=`<div class="section-title"><h2>${name}</h2><span>${score}</span></div><p class="section-note">${note}</p><div class="grid" id="grid-${sec}"></div>`;
+    host.appendChild(section); const grid=section.querySelector(".grid");
+    list.forEach((q,idx)=>{
+      const card=document.createElement("article");card.className="card"+(q.type==="input"&&q.q.length>55?" wide":"");card.id="card-"+q.id;
+      let body=`<div class="qtop"><span class="num">${QUESTIONS.indexOf(q)+1}</span><span class="tag">${q.type==="choice"?"选择题":"填写答案"}</span></div><div class="q">${esc(q.q)}</div>`;
+      if(q.type==="choice"){
+        body+=`<div class="options">${q.options.map((o,i)=>`<label class="opt"><input type="radio" name="${q.id}" value="${String.fromCharCode(65+i)}" data-q="${q.id}"><span>${String.fromCharCode(65+i)}. ${esc(o)}</span></label>`).join("")}</div>`;
+      }else{
+        body+=`<div class="answer-line"><input data-q="${q.id}" class="answer-input" autocomplete="off"><span class="unit">${esc(q.unit||"")}</span></div>`;
+      }
+      body+=`<div class="feedback"></div>`;card.innerHTML=body;grid.appendChild(card);
+    });
+  }
+  document.querySelectorAll("input").forEach(el=>el.addEventListener("input",updateProgress));
+  document.querySelectorAll("input[type=radio]").forEach(el=>el.addEventListener("change",updateProgress));
+  updateProgress();
+}
+function given(q){
+  if(q.type==="choice")return document.querySelector(`input[name="${q.id}"]:checked`)?.value||"";
+  return document.querySelector(`input[data-q="${q.id}"]`)?.value||"";
+}
+function updateProgress(){
+  const n=QUESTIONS.filter(q=>given(q)!=="").length;
+  $("progressBar").style.width=(n/QUESTIONS.length*100)+"%";$("progressText").textContent=`已答 ${n} / ${QUESTIONS.length}`;
+}
+function grade(){
+  let points=0; const wrong=[];
+  QUESTIONS.forEach((q,i)=>{
+    const ans=given(q); let ok=false;
+    if(q.type==="choice") ok=ans===q.answer;
+    else ok=q.answer.map(norm).includes(norm(ans));
+    if(ok)points+=q.points; else wrong.push({n:i+1,q});
+    const card=$("card-"+q.id);card.classList.remove("correct","wrong");card.classList.add(ok?"correct":"wrong");
+    const fb=card.querySelector(".feedback");
+    const answerText=q.type==="choice"?`${q.answer}. ${q.options[q.answer.charCodeAt(0)-65]}`:q.answer[0]+(q.unit?` ${q.unit}`:"");
+    fb.innerHTML=ok?`<strong>答对了。</strong> ${esc(q.explain)}`:`<strong>正确答案：${esc(answerText)}</strong><br>${esc(q.explain)}`;
+  });
+  const level=points>=90?"状态很稳，重点复盘错题即可。":points>=75?"基础不错，把错题按类型再练一遍。":points>=60?"概念有一些混淆，优先复盘“周长剪拼、日期、连除”。":"建议先不急着做第二套，跟着每一道错题的解释慢慢重做。";
+  const report=$("report");report.innerHTML=`<div class="report-head"><div><h2>批改报告</h2><div class="score">${points} <span style="font-size:16px">分</span></div><div style="font-size:13px;color:#61758b">答对 ${QUESTIONS.length-wrong.length} / ${QUESTIONS.length} 题</div></div><div class="badge">错题已显示解析</div></div><div class="report-body"><div class="hint"><strong>考前最后15分钟怎么用：</strong>${level}</div>${wrong.length?`<div style="margin-top:14px"><strong>本次需要再看：</strong><div class="mistake-list">${wrong.map(x=>`<span class="chip">第${x.n}题 · ${x.q.section}部分</span>`).join("")}</div></div>`:"<div style='margin-top:14px' class='hint'>全对！建议只复盘第5、26、31、35题，它们最容易在考试中换一种问法。</div>"}</div>`;
+  report.style.display="block";report.scrollIntoView({behavior:"smooth",block:"start"});
+  document.querySelectorAll("#exam input").forEach(el=>el.disabled=true);
+  $("gradeBtn").disabled=true;
+}
+function resetExam(){
+  $("report").style.display="none";$("report").innerHTML="";$("gradeBtn").disabled=false;
+  document.querySelectorAll("#exam input").forEach(el=>{el.disabled=false;if(el.type==="radio")el.checked=false;else el.value="";});
+  document.querySelectorAll(".card").forEach(c=>c.classList.remove("correct","wrong"));updateProgress();window.scrollTo({top:$("exam").offsetTop-8,behavior:"smooth"});
+}
+$("startBtn").addEventListener("click",()=>{render();$("exam").style.display="block";$("titleLine").textContent=( $("student").value.trim()?$("student").value.trim()+"的":"")+"三下数学期末冲刺卷";$("exam").scrollIntoView({behavior:"smooth",block:"start"});});
+$("gradeBtn").addEventListener("click",grade);$("resetBtn").addEventListener("click",resetExam);
+</script>
+</body></html>
